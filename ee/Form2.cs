@@ -158,34 +158,6 @@ namespace ee
 
         }
 
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms.OfType<Form6>().Count() > 0)
-            {
-                MessageBox.Show("O formulário já está aberto.");
-                return;
-            }
-            else
-            {
-                Form6 tela = new Form6();
-                tela.Show();
-            }
-        }
-
-        private void pictureBox7_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms.OfType<Form7>().Count() > 0)
-            {
-                MessageBox.Show("O formulário já está aberto.");
-                return;
-            }
-            else
-            {
-                Form7 tela = new Form7();
-                tela.Show();
-            }
-        }
-
         private void Form2_Load(object sender, EventArgs e)
         {
 
@@ -237,6 +209,48 @@ namespace ee
             panel5.Visible = false;
             panel4.Visible = false;
             panel1.Visible = false;
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<Form8>().Count() > 0)
+            {
+                MessageBox.Show("O formulário já está aberto.");
+                return;
+            }
+            else
+            {
+                Form8 tela = new Form8();
+                tela.Show();
+            }
+        }
+
+        private void pictureBox6_Click_1(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<Form6>().Count() > 0)
+            {
+                MessageBox.Show("O formulário já está aberto.");
+                return;
+            }
+            else
+            {
+                Form6 tela = new Form6();
+                tela.Show();
+            }
+        }
+
+        private void pictureBox7_Click_1(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<Form7>().Count() > 0)
+            {
+                MessageBox.Show("O formulário já está aberto.");
+                return;
+            }
+            else
+            {
+                Form7 tela = new Form7();
+                tela.Show();
+            }
         }
     }
 }
