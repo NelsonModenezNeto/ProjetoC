@@ -190,5 +190,53 @@ namespace ee
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+            panel3.Visible = true;
+            panel8.Visible = false;
+            panel7.Visible = false;
+            panel2.Visible = false;
+            panel4.Visible = false;
+            panel5.Visible = false;
+            panel6.Visible = false;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            panel4.Visible = true;
+            panel2.Visible = true;
+            panel7.Visible = false;
+            panel8.Visible = false;
+            panel3.Visible = false;
+            panel1.Visible = false;
+            panel5.Visible = false;
+            panel6.Visible = false;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            panel5.Visible = true;
+            panel7.Visible = true;
+            panel8.Visible = false;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            panel4.Visible = false;
+            panel1.Visible = false;
+            panel6.Visible = false;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            panel6.Visible = true;
+            panel8.Visible = true;
+            panel7.Visible = false;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            panel5.Visible = false;
+            panel4.Visible = false;
+            panel1.Visible = false;
+        }
     }
 }
