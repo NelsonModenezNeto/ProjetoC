@@ -252,5 +252,80 @@ namespace ee
                 tela.Show();
             }
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            panel5.Visible = true;
+            panel7.Visible = true;
+            panel8.Visible = false;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            panel4.Visible = false;
+            panel1.Visible = false;
+            panel6.Visible = false;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            int quantidade = 0;
+            double valoruni = 0;
+            double total = 0;
+
+            if (int.TryParse(textBox1.Text, out quantidade) && double.TryParse(textBox2.Text, out valoruni))
+            {
+                total = quantidade * valoruni;
+                textBox5.Text = total.ToString();
+            }
+            else
+            {
+                // Se a conversão falhar, pode exibir uma mensagem de erro ou fazer qualquer tratamento apropriado.
+                // Por exemplo, poderia limpar o textBox5.Text.
+                textBox5.Text = "";
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            int quantidade = 0;
+            double valoruni = 0;
+            double total = 0;
+
+            if (int.TryParse(textBox1.Text, out quantidade) && double.TryParse(textBox2.Text, out valoruni))
+            {
+                total = quantidade * valoruni;
+                textBox5.Text = total.ToString();
+            }
+            else
+            {
+                // Se a conversão falhar, pode exibir uma mensagem de erro ou fazer qualquer tratamento apropriado.
+                // Por exemplo, poderia limpar o textBox5.Text.
+                textBox5.Text = "";
+            }
+        }
+
+        private void textBox2_MouseEnter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_MouseClick(object sender, MouseEventArgs e)
+        {
+           
+        }
+
+        private void textBox2_MouseLeave(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void textBox2_MouseMove(object sender, MouseEventArgs e)
+        {
+            
+        }
     }
 }
