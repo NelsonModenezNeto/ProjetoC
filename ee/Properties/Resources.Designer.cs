@@ -93,6 +93,36 @@ namespace ee.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap adicionar_botao {
+            get {
+                object obj = ResourceManager.GetObject("adicionar-botao", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap adicionar_botao__1_ {
+            get {
+                object obj = ResourceManager.GetObject("adicionar-botao (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap adicionar_botao__2_ {
+            get {
+                object obj = ResourceManager.GetObject("adicionar-botao (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap adidas_logo_branco {
             get {
                 object obj = ResourceManager.GetObject("adidas-logo-branco", resourceCulture);
@@ -226,6 +256,16 @@ namespace ee.Properties {
         internal static System.Drawing.Bitmap engrenagem__1_ {
             get {
                 object obj = ResourceManager.GetObject("engrenagem (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fechar {
+            get {
+                object obj = ResourceManager.GetObject("fechar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

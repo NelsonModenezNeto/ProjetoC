@@ -1,0 +1,58 @@
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ee
+{
+    internal class Conexao
+    {
+
+        private MySqlConnection connection;
+        private string connectionString;
+
+        public Conexao()
+        {
+            connectionString = "Server=aws.connect.psdb.cloud;Database=teste;user=tnped03wthb8hf87z3pk;password=pscale_pw_imKNgVqtqOmSMZ66lspwBfFqWChQ9KaPktS7IFLVYkX;SslMode=VerifyFull;";
+            connection = new MySqlConnection(connectionString);
+        }
+
+        public void AbrirConexao()
+        {
+            try
+            {
+                connection.Open();
+                Console.WriteLine("Conexão bem-sucedida!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao conectar: {ex.Message}");
+            }
+        }
+
+        public void FecharConexao()
+        {
+            if (connection.State == System.Data.ConnectionState.Open)
+            {
+                connection.Close();
+                Console.WriteLine("Conexão fechada.");
+            }
+        }
+
+        public void ExecutarQuery(string query)
+        {
+            try
+            {
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.ExecuteNonQuery();
+                Console.WriteLine("Consulta executada com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao executar a consulta: {ex.Message}");
+            }
+        }
+    }
+}

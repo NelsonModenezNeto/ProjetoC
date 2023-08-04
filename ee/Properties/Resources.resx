@@ -118,11 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="003-produtos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\003-produtos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="adicionar-botao (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\adicionar-botao (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="senha" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\senha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="adicionar-botao" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\adicionar-botao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cruz" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cruz.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -135,6 +135,12 @@
   </data>
   <data name="001-lider-do-time" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\001-lider-do-time.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo-adidas-4096" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo-adidas-4096.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cartao-de-credito" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cartao-de-credito.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cadastro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cadastro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,14 +193,20 @@
   <data name="ajustar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ajustar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fechar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fechar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="003-produtos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\003-produtos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="marca-cruzada" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\marca-cruzada.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LianaTessler_BirmanCjShops_RafaelRenzo-2-1000x6001" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LianaTessler_BirmanCjShops_RafaelRenzo-2-1000x6001.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cartao-de-credito" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cartao-de-credito.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="senha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\senha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cadastro (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cadastro (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,7 +217,7 @@
   <data name="silhueta-de-icone-de-casa (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silhueta-de-icone-de-casa (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logo-adidas-4096" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo-adidas-4096.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="adicionar-botao (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\adicionar-botao (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

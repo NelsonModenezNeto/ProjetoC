@@ -36,6 +36,9 @@
     <Reference Include="AlphaBlendTextBox">
       <HintPath>..\..\..\..\Downloads\AlphaBlendTextBox_demo\AlphaBlendTextBox.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\..\Downloads\v4.5.2\v4.5.2\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conexao.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +232,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo-adidas-4096.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fechar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adicionar-botao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adicionar-botao %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adicionar-botao %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
