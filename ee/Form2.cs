@@ -13,12 +13,30 @@ namespace ee
 {
     public partial class Form2 : Form
     {
+        
+
         public Form2()
         {
-            Conexao conexao = new Conexao();
-            conexao.AbrirConexao();
+            InitializeComponent();      
+            LoadData();
+        }
 
-            InitializeComponent();
+        private async void LoadData()
+        {
+
+            await CarregaGrid2Async();
+        }
+
+        private async Task CarregaGrid2Async()
+        {
+            // Simulação de carregamento demorado
+            await Task.Delay(500);
+            CarregaGrid2();
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            // Configuração de visibilidade de painéis
             panel3.Visible = true;
             panel8.Visible = false;
             panel7.Visible = false;
@@ -26,22 +44,6 @@ namespace ee
             panel4.Visible = false;
             panel5.Visible = false;
             panel6.Visible = false;
-            dataGridView2.Rows.Add(null, 1, "Banana", 1000);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void gradiente1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -92,25 +94,6 @@ namespace ee
             panel1.Visible = false;
         }
 
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel8_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -153,20 +136,6 @@ namespace ee
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -193,7 +162,7 @@ namespace ee
         }
 
         private void button8_Click(object sender, EventArgs e)
-        {
+        {        
             panel5.Visible = true;
             panel7.Visible = true;
             panel8.Visible = false;
@@ -246,14 +215,14 @@ namespace ee
 
         private void pictureBox7_Click_1(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<Form7>().Count() > 0)
+            if (Application.OpenForms.OfType<Form7>().Any())
             {
                 MessageBox.Show("O formulário já está aberto.");
                 return;
             }
             else
             {
-                Form7 tela = new Form7();
+                Form7 tela = new Form7(this); // Passando a referência correta do Form2
                 tela.Show();
             }
         }
@@ -308,41 +277,7 @@ namespace ee
                 textBox5.Text = "";
             }
         }
-
-        private void textBox2_MouseEnter(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_MouseClick(object sender, MouseEventArgs e)
-        {
-           
-        }
-
-        private void textBox2_MouseLeave(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void textBox2_MouseMove(object sender, MouseEventArgs e)
-        {
-            
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+   
 
         private void button10_Click(object sender, EventArgs e)
         {
@@ -389,6 +324,8 @@ namespace ee
                     dataGridView1.Rows.Add(null, nomeProduto, quantidadeProduto, valorProduto);
                 }
 
+                carregaMetododePagamento();
+                calculartroco();
                 AtualizarLabel19();
                 textBox3.Text = "";
                 textBox1.Text = "";
@@ -404,8 +341,11 @@ namespace ee
             if (e.ColumnIndex == dataGridView1.Columns["Column4"].Index && e.RowIndex >= 0)
             {
                 dataGridView1.Rows.RemoveAt(e.RowIndex);
+                carregaMetododePagamento();
+                calculartroco();
                 AtualizarLabel19();
             }
+
         }
 
         private void dataGridView2_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -444,6 +384,8 @@ namespace ee
                     
                 }
             }
+            carregaMetododePagamento();
+            calculartroco();
             AtualizarLabel19();
         }
 
@@ -472,6 +414,102 @@ namespace ee
         private void panel7_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+        public void CarregaGrid2()
+        {
+            try
+            {
+                Conexao conexao = new Conexao();
+                conexao.AbrirConexao();
+
+                string consulta = "SELECT nomeProduto, Preco FROM Produto"; // Sua consulta SQL aqui
+                conexao.ExecutarQuery(consulta);
+
+                DataTable dataTable = new DataTable();
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter())
+                {
+                    adapter.SelectCommand = new MySqlCommand(consulta, conexao.RetornarConexao());
+                    adapter.Fill(dataTable);
+
+                    dataGridView2.Rows.Clear();
+
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        // Obtém os valores da linha
+                        string nome = row["nomeProduto"].ToString();
+                        double preco = Convert.ToDouble(row["Preco"]);
+                        int quantidade = 1; // Valor fixo
+                        Image imagem = null;
+
+                        // Adiciona a linha no DataGridView
+                        dataGridView2.Rows.Add(imagem, quantidade, nome, preco);
+                    }
+                }
+
+                conexao.FecharConexao();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao carregar o grid: {ex.Message}");
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == 2)
+            {
+                textBox4.Visible = true;
+                textBox6.Visible = true;
+                label26.Visible = true;
+                label25.Visible = true;
+            }
+            else
+            {
+                textBox4.Visible = false;
+                textBox6.Visible = false;
+                label26.Visible = false;
+                label25.Visible = false;
+            }
+            if (comboBox1.SelectedIndex == 1)
+            {
+                MessageBox.Show("Realize o Pagamento Pelo Cartão Depois Confirme o Pagamento");
+            }
+            if (comboBox1.SelectedIndex == 0)
+            {
+                MessageBox.Show("Realize o Pagamento Pelo PIX Depois Confirme o Pagamento");
+            }
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            calculartroco();
+        }
+        public void calculartroco()
+        {
+            double recebido = 0;
+            double valorTotal = SomarValoresColumn3(dataGridView1);
+            double troco = 0;
+
+            if (double.TryParse(textBox4.Text, out recebido))
+            {
+                troco = recebido - valorTotal;
+                textBox6.Text = troco.ToString();
+            }
+        }
+        public void carregaMetododePagamento()
+        {
+            
+            if(dataGridView1.Rows.Count == 0)
+            {
+                label20.Visible = false;
+                comboBox1.Visible = false;
+                button11.Visible = false;
+            }
+            else
+            {
+                label20.Visible = true;
+                comboBox1.Visible = true;
+                button11.Visible = true;           }
         }
     }
 }

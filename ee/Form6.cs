@@ -48,16 +48,29 @@ namespace ee
             else{ 
                 String nome = textBox1.Text;
                 String email = textBox3.Text;
-                
+                int senha = Int32.Parse(textBox4.Text);
+
+
 
                 Conexao conexao = new Conexao();
                 conexao.AbrirConexao();
 
-                string consulta = "INSERT INTO tabela (coluna1, coluna2) VALUES ('valor1', 'valor2')";
+                string consulta = "INSERT INTO Usuario (nome, email, senha) VALUES ('" + nome + "', '" + email + "', " + senha + ")";
                 conexao.ExecutarQuery(consulta);
 
                 conexao.FecharConexao();
+
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
+                textBox4.Text = "";
+                MessageBox.Show("Usuário Cadastrado Com Sucesso!");
             }         
+        }
+
+        private void Form6_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

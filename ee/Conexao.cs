@@ -15,7 +15,7 @@ namespace ee
 
         public Conexao()
         {
-            connectionString = "Server=aws.connect.psdb.cloud;Database=teste;user=tnped03wthb8hf87z3pk;password=pscale_pw_imKNgVqtqOmSMZ66lspwBfFqWChQ9KaPktS7IFLVYkX;SslMode=VerifyFull;";
+            connectionString = "Server=aws.connect.psdb.cloud;Database=teste;user=tnped03wthb8hf87z3pk;password=pscale_pw_imKNgVqtqOmSMZ66lspwBfFqWChQ9KaPktS7IFLVYkX;SslMode=VerifyFull";
             connection = new MySqlConnection(connectionString);
         }
 
@@ -54,5 +54,10 @@ namespace ee
                 Console.WriteLine($"Erro ao executar a consulta: {ex.Message}");
             }
         }
+        public MySqlConnection RetornarConexao()
+        {
+            return connection;
+        }
+
     }
 }
