@@ -13,12 +13,14 @@ namespace ee
 {
     public partial class Form2 : Form
     {
-        
+
+     
 
         public Form2()
         {
             InitializeComponent();      
             LoadData();
+           
         }
 
         private async void LoadData()
@@ -504,12 +506,26 @@ namespace ee
                 label20.Visible = false;
                 comboBox1.Visible = false;
                 button11.Visible = false;
+                textBox4.Visible = false;
+                textBox6.Visible = false;
+                label25.Visible = false;
+                label26.Visible = false;
+                comboBox1.SelectedIndex = -1;
+
             }
             else
             {
                 label20.Visible = true;
                 comboBox1.Visible = true;
                 button11.Visible = true;           }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+        }
+        public void SetNomeUsuario(string nomeUsuario)
+        {
+            label8.Text = nomeUsuario; // Define o texto do Label com o nome do usuário
         }
     }
 }

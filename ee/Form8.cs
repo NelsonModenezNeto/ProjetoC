@@ -32,22 +32,30 @@ namespace ee
             {
                 MessageBox.Show("Digite a Idade!");
             }
+            else if (!int.TryParse(textBox3.Text, out int idade))
+            {
+                MessageBox.Show("Digite Uma Idade Válida!");
+            }
             else if (textBox2.Text == string.Empty)
             {
                 MessageBox.Show("Digite o Salário!");
+            }
+            else if (!double.TryParse(textBox2.Text, out double salario))
+            {
+                MessageBox.Show("Digite um Salário Válido!");
             }
             else if (textBox4.Text == string.Empty)
             {
                 MessageBox.Show("Digite o Cargo!");
             }
+            else if (int.Parse(textBox3.Text) > 100 || int.Parse(textBox3.Text) < 12)
+            {
+                MessageBox.Show("Digite Uma Idade Válida de 12 Até 100 Anos!");
+            }
             else
             {
                 String nome = textBox1.Text;
-                int idade = Int32.Parse(textBox3.Text);
-                double salario = double.Parse(textBox2.Text);
                 String cargo = textBox4.Text;
-
-
 
                 Conexao conexao = new Conexao();
                 conexao.AbrirConexao();
@@ -64,6 +72,7 @@ namespace ee
                 MessageBox.Show("Funcionário Cadastrado Com Sucesso!");
             }
         }
+
 
         private void Form8_Load(object sender, EventArgs e)
         {

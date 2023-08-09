@@ -49,6 +49,14 @@ namespace ee
             label2.Select();
         }
 
+        private string nomeUsuario; // Variável para armazenar o nome do usuário
+
+        private string RetornarUsuario(string nome)
+        {
+            nomeUsuario = nome; // Armazena o nome do usuário na variável
+            return nome;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             bool finde = false;
@@ -75,6 +83,7 @@ namespace ee
 
                         if (Nome == alphaBlendTextBox1.Text && Senha == alphaBlendTextBox2.Text)
                         {
+                            RetornarUsuario(Nome);
                             finde = true;
                         }
                         
@@ -89,10 +98,15 @@ namespace ee
 
             if (finde == true)
             {
-                Form2 form = new Form2();
-                form.ShowDialog();
-                this.Close();
+                // Fechar o Form1
+                this.Hide(); // Oculta o Form1
+
+                // Criar e exibir o Form2
+                Form2 form2 = new Form2();
+                form2.SetNomeUsuario(nomeUsuario.ToUpper()); // Chama o método para definir o nome de usuário no Form2
+                form2.Show();
             }
+
             else
             {
                 MessageBox.Show("Usuário ou Senha Incorreto");

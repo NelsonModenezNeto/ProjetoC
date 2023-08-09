@@ -15,7 +15,7 @@ namespace ee
 
         public Conexao()
         {
-            connectionString = "Server=aws.connect.psdb.cloud;Database=teste;user=tnped03wthb8hf87z3pk;password=pscale_pw_imKNgVqtqOmSMZ66lspwBfFqWChQ9KaPktS7IFLVYkX;SslMode=VerifyFull";
+            connectionString = "Server=aws.connect.psdb.cloud;Database=teste;user=020o089ewed28p8h4exj;password=pscale_pw_RzJQVpasEXp59YThGrWmLDQ0f7kNxGGqLRQXLmd6AbB;SslMode=VerifyFull";
             connection = new MySqlConnection(connectionString);
         }
 
