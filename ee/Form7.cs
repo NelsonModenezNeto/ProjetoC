@@ -44,11 +44,14 @@ namespace ee
             {
                 MessageBox.Show("Digite a Descrição!");
             }
+            else if(!Double.TryParse(textBox3.Text, out double preco))
+            {
+                MessageBox.Show("Digite um Valor Numerico Para o Preço Descrição!");
+            } 
             else
             {
                 
                 String nome = textBox1.Text;
-                Double preco = Double.Parse(textBox3.Text);
                 String descricao = textBox2.Text;
 
                 Conexao conexao = new Conexao();
@@ -71,6 +74,11 @@ namespace ee
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
         }

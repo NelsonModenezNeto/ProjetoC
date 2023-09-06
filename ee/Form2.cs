@@ -14,13 +14,13 @@ namespace ee
     public partial class Form2 : Form
     {
 
-     
+
 
         public Form2()
         {
-            InitializeComponent();      
+            InitializeComponent();
             LoadData();
-           
+
         }
 
         private async void LoadData()
@@ -34,6 +34,7 @@ namespace ee
             // Simulação de carregamento demorado
             await Task.Delay(500);
             CarregaGrid2();
+            CarregaCombo();
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -99,12 +100,13 @@ namespace ee
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<Form4>().Count()>0)
+            if (Application.OpenForms.OfType<Form4>().Count() > 0)
             {
                 MessageBox.Show("O formulário já está aberto.");
                 return;
             }
-            else { 
+            else
+            {
                 Form4 tela = new Form4();
                 tela.Show();
             }
@@ -164,7 +166,7 @@ namespace ee
         }
 
         private void button8_Click(object sender, EventArgs e)
-        {        
+        {
             panel5.Visible = true;
             panel7.Visible = true;
             panel8.Visible = false;
@@ -279,7 +281,7 @@ namespace ee
                 textBox5.Text = "";
             }
         }
-   
+
 
         private void button10_Click(object sender, EventArgs e)
         {
@@ -290,15 +292,22 @@ namespace ee
             else if (textBox1.Text == string.Empty)
             {
                 MessageBox.Show("Digite a Quantidade!");
+            } 
+            if (!Int32.TryParse(textBox1.Text, out int quantidadeProduto))
+            {
+                MessageBox.Show("Digite a Quantidade em Valores Numéricos Inteiros!");
             }
             else if (textBox2.Text == string.Empty)
             {
                 MessageBox.Show("Digite o Valor Unitário!");
             }
+            else if (!Double.TryParse(textBox2.Text, out _))
+            {
+                MessageBox.Show("Digite o Valor Unitário em Números!");
+            }
             else
             {
                 string nomeProduto = textBox3.Text;
-                int quantidadeProduto = Int32.Parse(textBox1.Text);
                 double valorProduto = Double.Parse(textBox5.Text);
 
                 bool produtoExistente = false;
@@ -383,7 +392,7 @@ namespace ee
                 else // Caso contrário, adicionar o produto ao dataGridView1
                 {
                     dataGridView1.Rows.Add(null, nomeProduto, quantidadeProduto, valorProduto);
-                    
+
                 }
             }
             carregaMetododePagamento();
@@ -410,7 +419,7 @@ namespace ee
         private void AtualizarLabel19()
         {
             double somaColumn3 = SomarValoresColumn3(dataGridView1);
-            label19.Text = (somaColumn3+"R$");
+            label19.Text = (somaColumn3 + "R$");
         }
 
         private void panel7_Paint(object sender, PaintEventArgs e)
@@ -460,10 +469,23 @@ namespace ee
         {
             if (comboBox1.SelectedIndex == 2)
             {
+                comboBox2.SelectedIndex = -1;
+                comboBox3.SelectedIndex = -1;
+                label31.Text = "";
+                textBox7.Text = "";
+                textBox4.Text = "";
+                textBox6.Text = "";
                 textBox4.Visible = true;
                 textBox6.Visible = true;
                 label26.Visible = true;
                 label25.Visible = true;
+                label29.Visible = true;
+                label30.Visible = true;
+                label31.Visible = true;
+                textBox7.Visible = true;
+                comboBox2.Visible = true;
+                comboBox3.Visible = true;
+
             }
             else
             {
@@ -474,11 +496,35 @@ namespace ee
             }
             if (comboBox1.SelectedIndex == 1)
             {
+                comboBox2.SelectedIndex = -1;
+                comboBox3.SelectedIndex = -1;
+                textBox4.Text = "";
+                textBox6.Text = "";
+                label31.Text = "";
+                textBox7.Text = "";
                 MessageBox.Show("Realize o Pagamento Pelo Cartão Depois Confirme o Pagamento");
+                label31.Visible = true;
+                textBox7.Visible = true;
+                label29.Visible = true;
+                label30.Visible = true;
+                comboBox2.Visible = true;
+                comboBox3.Visible = true;
             }
             if (comboBox1.SelectedIndex == 0)
             {
+                comboBox2.SelectedIndex = -1;
+                comboBox3.SelectedIndex = -1;
+                textBox4.Text = "";
+                textBox6.Text = "";
+                label31.Text = "";
+                textBox7.Text = "";
                 MessageBox.Show("Realize o Pagamento Pelo PIX Depois Confirme o Pagamento");
+                label31.Visible = true;
+                textBox7.Visible = true;
+                label29.Visible = true;
+                label30.Visible = true;
+                comboBox2.Visible = true;
+                comboBox3.Visible = true;
             }
         }
 
@@ -500,8 +546,8 @@ namespace ee
         }
         public void carregaMetododePagamento()
         {
-            
-            if(dataGridView1.Rows.Count == 0)
+
+            if (dataGridView1.Rows.Count == 0)
             {
                 label20.Visible = false;
                 comboBox1.Visible = false;
@@ -510,6 +556,12 @@ namespace ee
                 textBox6.Visible = false;
                 label25.Visible = false;
                 label26.Visible = false;
+                label29.Visible = false;
+                label30.Visible = false;
+                label31.Visible = false;
+                textBox7.Visible = false;
+                comboBox2.Visible = false;
+                comboBox3.Visible = false;
                 comboBox1.SelectedIndex = -1;
 
             }
@@ -517,7 +569,8 @@ namespace ee
             {
                 label20.Visible = true;
                 comboBox1.Visible = true;
-                button11.Visible = true;           }
+                button11.Visible = true;
+            }
         }
 
         private void label8_Click(object sender, EventArgs e)
@@ -526,6 +579,78 @@ namespace ee
         public void SetNomeUsuario(string nomeUsuario)
         {
             label8.Text = nomeUsuario; // Define o texto do Label com o nome do usuário
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.Exit();
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.Exit();
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.Exit();
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (double.TryParse(comboBox3.Text.Replace("%", "").Trim(), out double porcentagem))
+            {
+                double total = double.Parse(label19.Text.Replace("R$", "").Trim());
+                double comissao = total * (porcentagem / 100);
+                textBox7.Text = comissao.ToString();
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        public void CarregaCombo()
+        {
+            try
+            {
+                Conexao conexao = new Conexao();
+                conexao.AbrirConexao();
+
+                string consulta = "SELECT Nome FROM Funcionario"; // Sua consulta SQL aqui
+                conexao.ExecutarQuery(consulta);
+
+                DataTable dataTable = new DataTable();
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter())
+                {
+                    adapter.SelectCommand = new MySqlCommand(consulta, conexao.RetornarConexao());
+                    adapter.Fill(dataTable);
+
+
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        // Obtém os valores da linha
+                        string nome = row["Nome"].ToString();
+
+                        // Adiciona a linha no DataGridView
+                        comboBox2.Items.Add(nome);
+                    }
+                }
+
+                conexao.FecharConexao();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro para carregar o combo: {ex.Message}");
+            }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -19,10 +19,6 @@ namespace ee
             
         }
 
-        private void alphaBlendTextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void gradiente1_Paint(object sender, PaintEventArgs e)
         {
@@ -59,6 +55,25 @@ namespace ee
 
         private void button1_Click(object sender, EventArgs e)
         {
+           
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
             bool finde = false;
             try
             {
@@ -81,12 +96,12 @@ namespace ee
                         string Nome = row["Nome"].ToString();
                         string Senha = row["Senha"].ToString();
 
-                        if (Nome == alphaBlendTextBox1.Text && Senha == alphaBlendTextBox2.Text)
+                        if (Nome == textBox3.Text && Senha == textBox2.Text)
                         {
                             RetornarUsuario(Nome);
                             finde = true;
                         }
-                        
+
                     }
                 }
                 conexao.FecharConexao();
