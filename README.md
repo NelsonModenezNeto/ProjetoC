@@ -5,6 +5,8 @@ Home
 
 
 Cadastros
+![Captura de tela 2023-10-19 201705](https://github.com/NelsonModenezNeto/ProjetoC/assets/99834482/2d7ffc2e-bb9c-4a4a-be42-aba9b28aabd4)
 
 
 Pagamentos
+![Captura de tela 2023-10-19 201733](https://github.com/NelsonModenezNeto/ProjetoC/assets/99834482/17bcc485-448a-4bd0-bcb3-b8f78d938a12)
